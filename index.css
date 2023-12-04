@@ -1,0 +1,161 @@
+
+
+:root {
+    --bg-color: #212529;
+    --border-color: #666;
+    --font-color: #f1f5f9;
+    --primary-color: #4dff91;
+    --error-color: #ff0043;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    
+
+    
+}
+
+form{ 
+
+    margin: 10px;
+    padding: 10px;
+        
+}
+
+main{
+
+    
+    display: flex;
+    place-content: center !important;
+
+}
+
+h1{
+    background-color: transparent;
+    border: none;
+    color: var(--primary-color);
+    
+}
+
+
+
+
+input {
+
+    width: 240px;
+    height: 15px;
+    padding: 10px;
+    padding-left: 10px;
+    margin-top: 10;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    color: black;
+    text-align: start;
+    
+}
+
+button{
+    
+    cursor: pointer;
+    width: 260px;
+    height: 40px;
+
+    padding: 10px;
+    padding-left: 10px;
+
+    margin-top: 50px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    color: var(--bg-color);
+    background-color: var(--primary-color);
+    text-align: center;
+
+}
+
+
+  
+
+
+.formulario{
+
+   
+
+    display: grid;
+    height: 320px;
+    width: 300px;
+    margin: 50px;
+    
+    background-color: white;
+    color: black;
+    text-align: start;
+
+    border-radius: 12px;
+    border: 2px solid white; /* Cor e estilo da borda */
+    box-shadow: 8px 8px 16px  #4dff91;
+    
+
+}
+
+.superTexto{
+
+    cursor: pointer;
+    
+    height: 200px;
+    width: 350px;
+    margin: 50px;
+   
+    color: var(--bg-font);
+    text-align: start;
+
+    
+    text-align: center;
+    border: transparent;
+   
+   
+    
+
+    
+
+
+
+}
+
+
+
+
+@keyframes mudarCor {
+  0% {
+    color: var(--primary-color);
+  }
+  50% {
+    color: purple;
+  }
+  100% {
+    color: var(--primary-color);
+  }
+}
+
+
+
+strong {
+  font-family: 'Sua Fonte Bacana', sans-serif; /* Substitua 'Sua Fonte Bacana' pela fonte desejada */
+  animation: mudarCor 4s linear infinite;/* A animação dura 2 segundos e repete indefinidamente */
+}
+
+strong:hover {
+    animation: none; /* Remove a animação quando o mouse está sobre a tag <strong> */
+    color: var(--primary-color); /* Substitua 'red' pela cor desejada quando o mouse estiver sobre a tag */
+}
+
+/* Animação do mouse , Animetion pointer */
+
+
+
+
+
+
