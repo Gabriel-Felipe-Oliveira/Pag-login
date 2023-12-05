@@ -1,6 +1,9 @@
+import {fcnCreateUser} from "./users.js";
+
+let form = document.getElementById('meuFormulario');
 
 
-export function createInput(id, placeholder) {
+export function fcnCreateInput(id, placeholder) {
 
     const input = document.createElement('input');
     input.id = id;
@@ -11,17 +14,18 @@ export function createInput(id, placeholder) {
     return input;
 }
 
-export function createButton(id, value) {
+export function fcnCreateButton(id, value, onclick) {
     const button = document.createElement('button');
     button.id = id;
     button.type = 'button'; // Defina o tipo do botão aqui, por exemplo, 'button' ou 'submit'
     button.innerHTML = value;
+    button.onclick = onclick;
     // Use innerHTML ou innerText para definir o conteúdo do botão
     
     return button;
 }
 
-export function createLabel(id, value, ponto ) {
+export function fcnCreateLabel(id, value, ponto ) {
 
     const label = document.createElement('label');
     label.id = id;
@@ -33,7 +37,7 @@ export function createLabel(id, value, ponto ) {
     return label;
 }
 
-export function createLabelSpecial(id, value  ) {
+export function fcnCreateLabelSpecial(id, value  ) {
 
     const label = document.createElement('label');
     label.id = id;
@@ -46,7 +50,7 @@ export function createLabelSpecial(id, value  ) {
 }
 
 
-export function createTdWithTwoLabels(id1, value1, ponto1, id2, value2, ) {
+export function fcnCreateTdWithTwoLabels(id1, value1, ponto1, id2, value2, ) {
     // Cria as duas labels
     const label1 = createLabel(id1, value1, ponto1);
     const label2 = createLabelSpecial(id2, value2);
@@ -59,6 +63,20 @@ export function createTdWithTwoLabels(id1, value1, ponto1, id2, value2, ) {
     td.appendChild(label2);
 
     return td;
+}
+
+export function fcnCreateForm() {
+
+    form.innerHTML = '';
+
+    form.appendChild(fcnCreateInput('email','E-mail'));
+
+    form.appendChild(fcnCreateInput('name','Nome'));
+    
+    form.appendChild(fcnCreateInput('password', 'Password'));
+    
+    form.appendChild(fcnCreateButton('buttonLogin','Login' ,fcnCreateUser));
+       
 }
 
 
