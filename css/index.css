@@ -9,6 +9,7 @@
 }
 
 body {
+  margin: 0;
     font-family: 'Arial', sans-serif;
     text-align: center;
     background-color: var(--bg-color);
@@ -78,6 +79,19 @@ button{
 }
 
 
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+}
+
   
 
 
@@ -123,6 +137,22 @@ button{
 
 
 
+}
+
+.label {
+  color: wheat;
+  font-size: 20px;
+  padding: 3px;
+  margin: 3px;
+ 
+}
+
+/* Estilo para a classe labelSpecial */
+.labelSpecial {
+  color: var(--primary-color);
+  font-size: 20px;
+  font-weight: normal;
+  
 }
 
 
