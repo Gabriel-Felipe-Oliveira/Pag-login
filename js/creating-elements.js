@@ -1,4 +1,5 @@
-import {fcnCreateUser} from "./users.js";
+import User from "./users.js";
+import Page from "./index.js";
 
 let form = document.getElementById('meuFormulario');
 
@@ -10,16 +11,34 @@ export function fcnCreateInput(id, placeholder) {
      input.value;
     input.type = input;
     input.placeholder = placeholder;
+    input.innerHTML = '';
 
     return input;
 }
 
-export function fcnCreateButton(id, value, onclick) {
+
+export function fcnCreateInputPassword(id, placeholder) {
+
+    const input = document.createElement('input');
+    input.id = id;
+     input.value;
+    input.type = 'password';
+    input.placeholder = placeholder;
+    input.innerHTML = '';
+
+    return input;
+}
+
+export function fcnCreateButton(id, value, className,onclick) {
     const button = document.createElement('button');
     button.id = id;
     button.type = 'button'; // Defina o tipo do botão aqui, por exemplo, 'button' ou 'submit'
     button.innerHTML = value;
     button.onclick = onclick;
+    if (className) {
+        button.classList.add(className);
+    }
+
     // Use innerHTML ou innerText para definir o conteúdo do botão
     
     return button;
@@ -65,17 +84,37 @@ export function fcnCreateTdWithTwoLabels(id1, value1, ponto1, id2, value2, ) {
     return td;
 }
 
-export function fcnCreateForm() {
+export function fcnCreateForm(page,myPage) {
 
     form.innerHTML = '';
+   
+
+    if(page === "criar" ){
 
     form.appendChild(fcnCreateInput('email','E-mail'));
 
     form.appendChild(fcnCreateInput('name','Nome'));
     
-    form.appendChild(fcnCreateInput('password', 'Password'));
+    form.appendChild(fcnCreateInputPassword('password', 'Password'));
     
-    form.appendChild(fcnCreateButton('buttonLogin','Login' ,fcnCreateUser));
+    form.appendChild(fcnCreateButton('buttonLogin','Criar' ,'',User.createUserAndSetCookie ));
+
+    form.appendChild(fcnCreateButton('logar','Logar','button',() => myPage.changePage('logar')));
+    
+
+    }
+
+    if(page === "logar"){
+
+    form.appendChild(fcnCreateInput('email','E-mail'));
+
+    form.appendChild(fcnCreateInputPassword('password', 'Password'));
+
+    form.appendChild(fcnCreateButton('buttonLogin','Logar' ,'',User.login));
+    form.appendChild(fcnCreateButton('cadastrar','Cadastrar','button',() => myPage.changePage('criar')));
+
+    }
+    
        
 }
 

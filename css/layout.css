@@ -1,0 +1,83 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+:root {
+    --bg-color: #212529;
+    --border-color: #666;
+    --font-color: #f1f5f9;
+    --primary-color: #4dff91;
+    --error-color: #ff0043;
+}
+
+body {
+  margin: 0;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background-color:var(--primary-color) ;
+    color: var(--font-color);
+    
+
+    
+}
+
+.container {
+    
+    display: flex;
+    height: 100vh;
+    
+}
+
+.sidebar {
+   padding: 20px;
+    width: 25%;
+   
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.content {
+    margin-left: 25%;
+    margin-right: 25%;
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    background-color: var(--font-color);
+    height: 100%;
+    max-width: 50%;
+    
+}
+
+.extra-content {
+    width: 25%; 
+/* Largura do terceiro bloco */
+    
+    position: fixed;
+    padding: 20px;
+    right: 0;
+    height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+.cabecalho{
+
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background-color: var(--font-color);
+    
+}
+
+/* Estilos adicionais para melhorar a aparência */
+h2 {
+    color: #333;
+}
+
+p {
+    color: #666;
+}

@@ -3,8 +3,32 @@ import { getCookie } from "./save-cockie.js";
 import { fcnCreateForm } from "./creating-elements.js";
 
 
+class Page {
+    constructor(page){
 
-let UsuarioLogado = '';
+        this.page = page
+    }
+
+    changePage(newPage) {
+        this.page = newPage;
+        console.log(`Mudando de ${this.page}`);
+        // Recarrega a página passando o valor para o construtor
+        window.location.href = `?page=${newPage}`;
+    }
+    
+
+    
+}
+
+const urlParams = new URLSearchParams(window.location.search);
+const initialPage = urlParams.get('page') || 'logar';
+
+// Cria a instância de Page com o valor da URL ou 'inicial' como padrão
+const myPage = new Page(initialPage);
+console.log(initialPage);
+
+// Exemplo de uso
+
 
 
 
@@ -12,13 +36,13 @@ function fcnVerificarLogin() {
     var dadosDoCookie = getCookie("dadosUsuario");
 
     if (!dadosDoCookie ) {
-        // Usuário está logado
-       
-        // Usuário não está logado
-        UsuarioLogado = 'nao logado';
-        fcnCreateForm(UsuarioLogado);
+        
+        
+        fcnCreateForm(myPage.page,myPage);
     }
-    else{}
+    else{
+
+    }
 }
 
 fcnVerificarLogin()
@@ -37,6 +61,7 @@ document.addEventListener('mousemove', function (e) {
     cursor.style.top = e.pageY + 'px';
 });
 
+export default Page;
 
 
 
