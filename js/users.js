@@ -1,4 +1,5 @@
-import { setCookie , getCookie} from "./save-cockie.js";
+
+import { validateForm } from "./validators.js";
 let form = document.getElementById('meuFormulario');
 
 
@@ -11,12 +12,34 @@ class User {
         this.password = password;
     }
 
-    static createUserAndSetCookie() {
-        const userInput = getCreateUserInput();
-        const user = new User(userInput.name, userInput.email, userInput.password);
-        console.log(user);
-        setCookie("dadosUsuario", user);
-        // Lógica ou ações adicionais podem ser adicionadas aqui
+   
+
+    static createUser() {
+
+        const userInput = getCreateUserInput()
+
+        if (validateForm()) {
+
+            const UserData = {
+                name: userInput.name,
+                password: userInput.password,
+                email: userInput.email,
+            };
+    
+         fetch('http://localhost:3000/User', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+            },
+
+             body: JSON.stringify(UserData),
+
+            });
+
+            alert("Registro bem-sucedido!");
+            
+            
+        }
     }
 
     static login() {
@@ -69,3 +92,9 @@ function getLoginUserInput() {
 }
 
 export default User;
+
+
+
+
+
+

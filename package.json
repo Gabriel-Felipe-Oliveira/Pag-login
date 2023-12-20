@@ -1,0 +1,15 @@
+{
+  "name": "pag-login",
+  "version": "1.0.0",
+  "description": "Fazendo uma pagina de login projeto próprio",
+  "main": "index.js",
+  "scripts": {
+    "json-server": "json-server --watch db.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.4"
+  }
+}

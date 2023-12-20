@@ -1,5 +1,5 @@
 
-import { getCookie } from "./save-cockie.js";
+
 import { fcnCreateForm } from "./creating-elements.js";
 
 
@@ -21,10 +21,11 @@ class Page {
 }
 
 const urlParams = new URLSearchParams(window.location.search);
-const initialPage = urlParams.get('page') || 'logar';
+const initialPage = urlParams.get('page') ?? 'logar';
 
 // Cria a instância de Page com o valor da URL ou 'inicial' como padrão
 const myPage = new Page(initialPage);
+myPage.page = 'criar'
 console.log(initialPage);
 
 // Exemplo de uso
@@ -33,16 +34,13 @@ console.log(initialPage);
 
 
 function fcnVerificarLogin() {
-    var dadosDoCookie = getCookie("dadosUsuario");
+    
 
-    if (!dadosDoCookie ) {
+    
         
         
         fcnCreateForm(myPage.page,myPage);
-    }
-    else{
-
-    }
+    
 }
 
 fcnVerificarLogin()
