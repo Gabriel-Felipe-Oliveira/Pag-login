@@ -25,7 +25,7 @@ const initialPage = urlParams.get('page') ?? 'logar';
 
 // Cria a instância de Page com o valor da URL ou 'inicial' como padrão
 const myPage = new Page(initialPage);
-myPage.page = 'criar'
+
 console.log(initialPage);
 
 // Exemplo de uso
@@ -60,14 +60,3 @@ document.addEventListener('mousemove', function (e) {
 });
 
 export default Page;
-
-
-
-
-
-
-
-
-
-
-
