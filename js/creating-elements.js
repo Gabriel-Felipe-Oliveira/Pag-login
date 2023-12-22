@@ -3,12 +3,35 @@ import User from "./users.js";
 
 let form = document.getElementById('meuFormulario');
 
+//<img class="user-img"  alt="Foto do Usuário">
+export function fcnCreateImg(nameclass,alt,src){
+    const input = document.createElement('img');
+    input.classList = nameclass ;
+    input.alt = alt ;
+    input.src = src ;
+
+}
+
+export function fcnCreateP(id,value){
+    const input = document.createElement('p');
+    
+    input.id = id ;
+    input.value = value ;
+
+}
+
+
+
 
 export function fcnCreateInput(id, placeholder) {
     const input = document.createElement('input');
+
     input.id = id;
-   
+    
+    
+    
     input.placeholder = placeholder;
+    
     return input;
 }
 
@@ -51,7 +74,7 @@ export function fcnCreateForm(page,myPage) {
 
     if(page === "criar" ){
 
-    form.appendChild(fcnCreateInput('email','E-mail'));
+    form.appendChild(fcnCreateInput('email','empresa'));
 
     form.appendChild(fcnCreateInput('name','Nome'));
     

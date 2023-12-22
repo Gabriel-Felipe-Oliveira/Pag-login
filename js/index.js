@@ -1,6 +1,7 @@
 
 
 import { fcnCreateForm } from "./creating-elements.js";
+import {verificarCookie} from "./cookie.js";
 
 
 class Page {
@@ -36,10 +37,12 @@ console.log(initialPage);
 function fcnVerificarLogin() {
     
 
+//    if(verificarCookie('userEmail')){
+
+//         window.location.href = 'Layout.html';
+//     } 
     
-        
-        
-        fcnCreateForm(myPage.page,myPage);
+    fcnCreateForm(myPage.page,myPage);
     
 }
 

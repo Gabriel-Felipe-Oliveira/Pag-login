@@ -72,6 +72,24 @@ body {
     background-color: var(--font-color);
     
 }
+.card {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: left; /* Ajuste o texto para a esquerda */
+}
+
+.user-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px; /* Adiciona espaço entre a imagem e o texto */
+}
 
 /* Estilos adicionais para melhorar a aparência */
 h2 {

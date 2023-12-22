@@ -1,3 +1,5 @@
+import { getCreateUserInput } from "./users.js";
+
 function validateEmail(email) {
     const emailRegex = /@.*\.com/;
     if (!emailRegex.test(email)) {
@@ -13,20 +15,13 @@ function validatePassword(password) {
 }
 
 export function validateForm() {
-    try {
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
+    try { 
 
-        
-        validateEmail(email);
+        const userInput = getCreateUserInput(); // Pega os valores da tela e armazena no userIput
+        validateEmail(userInput.email);//Passa o valor de email pra validação
+        validatePassword(userInput.password);//Passa o valor da senha pra validação 
 
-       
-        validatePassword(password);
-
-       
-        
-        return true ;
+       return true ; //Caso tudo ocorra da melhor forma retorna true 
 
     } catch (error) {
         
