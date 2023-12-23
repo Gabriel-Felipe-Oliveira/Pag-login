@@ -1,28 +1,5 @@
 {
   "User": [
-    {
-      "id": "00",
-      "name": "Gabriel",
-      "password": "pkxrt1500",
-      "email": "gabriel.feliper2d2@hotmail.com"
-    },
-    {
-      "id": 3,
-      "name": "gabriel",
-      "password": "Pkxrt1500",
-      "email": "gabriel@.com"
-    },
-    {
-      "id": 5,
-      "name": "Ana Carolina",
-      "password": "Titinha21*",
-      "email": "ana.avelino@hotmail.com"
-    },
-    {
-      "id": 6,
-      "name": "gabriel",
-      "password": "Cachorromanco42@",
-      "email": "gabriel@.com"
-    }
+    
   ]
 }
