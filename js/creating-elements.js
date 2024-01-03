@@ -74,7 +74,7 @@ export function fcnCreateForm(page,myPage) {
 
     if(page === "criar" ){
 
-    form.appendChild(fcnCreateInput('email','empresa'));
+    form.appendChild(fcnCreateInput('email','E-mail'));
 
     form.appendChild(fcnCreateInput('name','Nome'));
     

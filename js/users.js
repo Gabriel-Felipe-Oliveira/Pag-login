@@ -22,6 +22,7 @@ class User {
    
 
     static createUser() {
+
         try {
 
            
@@ -41,7 +42,7 @@ class User {
     
                 console.log("email" + UserData.email + " senha" + UserData.password + " name" + UserData.name);
     
-                fetch('http://localhost:3000/User', {
+                fetch('http://localhost:3000/User',{
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
