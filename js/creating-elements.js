@@ -67,12 +67,9 @@ export function fcnCreateButton(id, value, className, onclick) {
 
 
 
-export function fcnCreateForm(page,myPage) {
+export function CreateFormRegisterUser(myPage) {
 
     form.innerHTML = '';
-   
-
-    if(page === "criar" ){
 
     form.appendChild(fcnCreateInput('email','E-mail'));
 
@@ -83,23 +80,23 @@ export function fcnCreateForm(page,myPage) {
     form.appendChild(fcnCreateButton('buttonLogin','Criar' ,'',User.createUser ));
 
     form.appendChild(fcnCreateButton('logar','Logar','button',() => myPage.changePage('logar')));
+
+}
+
     
+       
 
-    }
-
-    if(page === "logar"){
+export function CreateFormLoginUser(myPage){
 
     form.appendChild(fcnCreateInput('email','E-mail'));
 
     form.appendChild(fcnCreateInputPassword('password', 'Password'));
 
     form.appendChild(fcnCreateButton('buttonLogin','Logar' ,'',User.login));
-    form.appendChild(fcnCreateButton('cadastrar','Cadastrar','button',() => myPage.changePage('criar')));
+    form.appendChild(fcnCreateButton('cadastrar','Cadastrar','button',() => myPage.changePage('register')));
 
-    }
-    
-       
 }
+    
 
 
 

@@ -1,6 +1,6 @@
 
 
-import { fcnCreateForm } from "./creating-elements.js";
+import { CreateFormLoginUser,CreateFormRegisterUser } from "./creating-elements.js";
 import {verificarCookie} from "./cookie.js";
 
 
@@ -16,6 +16,10 @@ class Page {
         // Recarrega a página passando o valor para o construtor
         window.location.href = `?page=${newPage}`;
     }
+    returnePage(){
+        let page = this.page
+        return page
+    }
     
 
     
@@ -28,28 +32,38 @@ const initialPage = urlParams.get('page') ?? 'logar';
 const myPage = new Page(initialPage);
 
 console.log(initialPage);
+console.log(myPage.page);
 
 // Exemplo de uso
 
 
 
 
-function fcnVerificarLogin() {
-    
 
-//    if(verificarCookie('userEmail')){
 
-//         window.location.href = 'Layout.html';
-//     } 
-    
-    fcnCreateForm(myPage.page,myPage);
-    
+
+function CreatePage(){
+
+    let statePage = myPage.returnePage()
+
+    if(statePage == "logar"){
+
+        CreateFormLoginUser(myPage)
+
+    }
+    if(statePage == "register"){
+
+        CreateFormRegisterUser(myPage)
+
+    }
+
 }
 
-fcnVerificarLogin()
+CreatePage()
 
 
-// Chamada inicial para criar o formulário com base no estado do usuário
+
+
 
 
 
