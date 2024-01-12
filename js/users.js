@@ -1,55 +1,37 @@
 
-import { validateForm } from "./validators.js";
+// import { validateForm } from "./validators.js";
 import { setCookie } from "./cookie.js";
 let form = document.getElementById('meuFormulario');
 
 const apiUrl = 'http://localhost:3000/User';
+const expires = new Date();
 
-
-
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
-}
-
-
-const userInput = getCreateUserInput();
-
-   
 
 export function SaveUser() {
 
-            
+    const userInput = getCreateUserInput();
     
-            const UserData = {
-                    id: userInput.randomNumber, 
-                    name: userInput.name,
-                    password: userInput.password,
-                    email: userInput.email,
-            };
+    const UserData = {
+            id: userInput.randomNumber, 
+            name: userInput.name,
+            password: userInput.password,
+            email: userInput.email,
+    };
     
-            console.log("email" + UserData.email + " senha" + UserData.password + " name" + UserData.name);
+        console.log("email" + UserData.email + " senha" + UserData.password + " name" + UserData.name);
             
-            postUserData(apiUrl, UserData)
-            .then(handleResponse)
-            .then(handleData)
-            .catch(handleError);
-           
-            
-        
+        postUserData(apiUrl, UserData).then(handleResponse).then(handleData).catch(handleError);
 }
 
-    function postUserData(url, data) {
-        return fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        });
-    }
-
+function postUserData(url, data) {
+    return fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    });
+} 
 function handleResponse(response) {
     console.log('Response:', response);
     if (!response.ok) {
@@ -67,54 +49,86 @@ function handleError(error) {
     console.error('Error:', error);
     alert("Erro ao realizar o registro. Por favor, tente novamente.");
 }
+
+export async function login() {
+
+    const userInput = getLoginUserInput(); 
+    let User = checkUserByEmailAndSenha(apiUrl,userInput)
     
+    User.then(result => {
 
-    // function login() {
-    //     const userInput = getLoginUserInput(); // Certifique-se de implementar essa função
-    
-    //     try {
-    //         const response = await fetch('http://localhost:3000/User');
-    //         const usersData = await response.json();
-    
-    //         const storedUser = usersData.find(user => user.email === userInput.email);
-    
-    //         if (storedUser) {
-
-    //             if (userInput.password === storedUser.password) {
-
-    //                 alert("Login bem-sucedido!");
-
-                    
-    //                 expires.setDate(expires.getDate() + 3);//Pego a data de hoje e somo mais 3 dias a ela 
-
-    //                 setCookie('userEmail', storedUser.email, expires);//Chamo a fução setCokie que cria um cookie('nome do cookie' 'valores' 'tempo de expiração ')
-                    
-    //                 window.location.href = 'Layout.html';
-    //                 return true;
-
-    //             } else {
-
-    //                 alert('Senha incorreta');
-
-    //             }
-    //         } else {
-
-    //             alert('Este email não existe');
-
-    //         }
-    //     } catch (error) {
-
-    //         console.error("Falha na requisição para verificar o usuário:", error);
+                if (result) {
+                    // alert("Login bem-sucedido!");
+                    // setUserCookie(userInput.email);
+                    // window.location.href = 'Layout.html';
+                    alert("deu certo")
             
-    //     }
-    
-    //     console.log("Falha no login. Verifique seu e-mail e senha.");
-    //     return false;
-    // }
-    
- 
+                } else {
+                     alert("Erro ao processar a solicitação. Por favor, tente novamente mais tarde.");
+                }
+         }
+         )
+        .catch(error => {
 
+            console.error("Erro na Promise:", error);
 
+        });
+
+}
+
+async function checkUserByEmailAndSenha(url, userInput) {
+    let storedUser = false;
+
+    try {
+        const response = await postSelectData(url);
+        const usersData = await response.json();
+
+       
+
+        for (let i = 0; i < usersData.length; i++) {
+            const user = usersData[i];
+            
+            if (user.email == userInput.email && user.password == userInput.password) {
+                storedUser = true;
+                break;  // Encerra o loop assim que um usuário correspondente for encontrado
+            }
+
+        }
+         
+        return storedUser
+
+    } catch (error) {
+
+        console.log("Falha ao verificar usuário por e-mail");
+        throw error;
+
+    }
+}
+
+async function postSelectData(url) {
+    try {
+        const response = await fetch(url);
+        
+        return response;
+    } catch (error) {
+        console.error("Erro na requisição:", error);
+        throw error;
+    }
+}
+
+function setUserCookie(userEmail) {
+    
+    expires.setDate(expires.getDate() + 3);
+
+    // Certifique-se de implementar a função setCookie corretamente
+    setCookie('userEmail', userEmail, expires);
+}
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+}
 export function getCreateUserInput() {
     const name = form.name.value;
     const email = form.email.value;
@@ -132,9 +146,9 @@ function getLoginUserInput() {
     return { email, password };
 }
 
-const expires = new Date();
 
-export default User;
+
+
 
 
 

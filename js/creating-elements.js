@@ -1,4 +1,4 @@
-import User from "./users.js";
+import { SaveUser , login}  from "./users.js";
 
 
 let form = document.getElementById('meuFormulario');
@@ -77,14 +77,11 @@ export function CreateFormRegisterUser(myPage) {
     
     form.appendChild(fcnCreateInputPassword('password', 'Password'));
     
-    form.appendChild(fcnCreateButton('buttonLogin','Criar' ,'',User.createUser ));
+    form.appendChild(fcnCreateButton('buttonLogin','Criar' ,'',SaveUser ));
 
     form.appendChild(fcnCreateButton('logar','Logar','button',() => myPage.changePage('logar')));
 
 }
-
-    
-       
 
 export function CreateFormLoginUser(myPage){
 
@@ -92,7 +89,7 @@ export function CreateFormLoginUser(myPage){
 
     form.appendChild(fcnCreateInputPassword('password', 'Password'));
 
-    form.appendChild(fcnCreateButton('buttonLogin','Logar' ,'',User.login));
+    form.appendChild(fcnCreateButton('buttonLogin','Logar' ,'',login));
     form.appendChild(fcnCreateButton('cadastrar','Cadastrar','button',() => myPage.changePage('register')));
 
 }
