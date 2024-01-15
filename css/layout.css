@@ -8,7 +8,7 @@ body, html {
     --bg-color: #212529;
     --border-color: #666;
     --font-color: #f1f5f9;
-    --primary-color: #4dff91;
+    --primary-color: rgb(77, 255, 145);
     --error-color: #ff0043;
 }
 
@@ -16,13 +16,13 @@ body {
     margin: 0;
     font-family: 'Arial', sans-serif;
     color: var(--font-color);
-    background-color:  #f1f5f9;
+    background-color:  #212529;
 
 }
 
 
 .container {
-    padding: 5px;
+    
     
     display: flex;
     justify-content: space-between;
@@ -36,18 +36,55 @@ body {
 .sidebar {
     
  
-  height: 90vh;
-  min-width: 25%;
+  height: 100vh;
+  width: 45vh;
   display: grid;
+  border-right: 1px solid #f1f5f9;
+  
 }
 
-.button-sidebar{
+.button-sidebar {
+    height: 8vh;
+    width: 40vh;
+    text-align: start;
+    background-color: #212529;
+    border: transparent 1px;  
+    margin: 10px;
+    
+}
+
+.button-sidebar:hover {
     text-align: start;
     background-color: #f1f5f9;
-    color: #ff0043;
-    border:gray transparent 1px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid transparent;
+    box-shadow: 0 2px 4px rgba(77, 255, 145);
+    border-radius: 12px;
     margin: 10px;
+    color: #ff0000; /* Substitua "#ff0000" pela cor desejada para o texto */
+
+    .button-paragrafo{
+        color: #212529;
+        padding-left: 10px;
+    }
+    
+}
+
+
+.button-paragrafo{
+    color: #fff;
+    padding-left: 10px;
+}
+
+
+.icon-and-p{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.icon{
+    height:25px;
+    width: 25px;
 }
 
 .content {
@@ -95,6 +132,10 @@ body {
     border-radius: 50%;
     object-fit: cover;
     margin-right: 15px; /* Adiciona espaço entre a imagem e o texto */
+}
+.title-color{
+    color: rgba(77, 255, 145);
+    padding-left: 10px;
 }
 
 /* Estilos adicionais para melhorar a aparência */

@@ -4,9 +4,7 @@ import { setCookie } from "./cookie.js";
 let form = document.getElementById('meuFormulario');
 
 const apiUrl = 'http://localhost:3000/User';
-const expires = new Date();
-
-
+const expires = new Date()
 export function SaveUser() {
 
     const userInput = getCreateUserInput();
