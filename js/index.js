@@ -1,38 +1,47 @@
 
 
-import { CreateFormLoginUser,CreateFormRegisterUser } from "./creating-elements.js";
-import {verificarCookie} from "./cookie.js";
+// import { CreateFormLoginUser,CreateFormRegisterUser } from "./creating-elements.js";
+// import {verificarCookie} from "./cookie.js";
 
-
-class Page {
-    constructor(page){
-
-        this.page = page
-    }
-
-    changePage(newPage) {
-        this.page = newPage;
-        console.log(`Mudando de ${this.page}`);
-        // Recarrega a página passando o valor para o construtor
-        window.location.href = `?page=${newPage}`;
-    }
-    returnePage(){
-        let page = this.page
-        return page
-    }
-    
-
-    
+const button = document.getElementById("open-modal");
+const modal = document.getElementById("myModal");
+const buttonClosed = document.getElementById("closed-modal");
+button.onclick = function (){
+    modal.showModal()
+}
+buttonClosed.onclick = function(){
+    modal.close()
 }
 
-const urlParams = new URLSearchParams(window.location.search);
-const initialPage = urlParams.get('page') ?? 'logar';
+// class Page {
+//     constructor(page){
 
-// Cria a instância de Page com o valor da URL ou 'inicial' como padrão
-const myPage = new Page(initialPage);
+//         this.page = page
+//     }
 
-console.log(initialPage);
-console.log(myPage.page);
+//     changePage(newPage) {
+//         this.page = newPage;
+//         console.log(`Mudando de ${this.page}`);
+//         // Recarrega a página passando o valor para o construtor
+//         window.location.href = `?page=${newPage}`;
+//     }
+//     returnePage(){
+//         let page = this.page
+//         return page
+//     }
+    
+
+    
+// }
+
+// const urlParams = new URLSearchParams(window.location.search);
+// const initialPage = urlParams.get('page') ?? 'logar';
+
+// // Cria a instância de Page com o valor da URL ou 'inicial' como padrão
+// const myPage = new Page(initialPage);
+
+// console.log(initialPage);
+// console.log(myPage.page);
 
 // Exemplo de uso
 
@@ -42,26 +51,24 @@ console.log(myPage.page);
 
 
 
-function CreatePage(){
+// function CreatePage(){
 
-    let statePage = myPage.returnePage()
+//     let statePage = myPage.returnePage()
 
-    if(statePage == "logar"){
+//     if(statePage == "logar"){
 
-        CreateFormLoginUser(myPage)
+//         CreateFormLoginUser(myPage)
 
-    }
-    if(statePage == "register"){
+//     }
+//     if(statePage == "register"){
 
-        CreateFormRegisterUser(myPage)
+//         CreateFormRegisterUser(myPage)
 
-    }
+//     }
 
-}
+// }
 
-CreatePage()
-
-
+// CreatePage()
 
 
 
@@ -70,10 +77,12 @@ CreatePage()
 
 
 
-document.addEventListener('mousemove', function (e) {
-    var cursor = document.querySelector('.cursor-piscante');
-    cursor.style.left = e.pageX + 'px';
-    cursor.style.top = e.pageY + 'px';
-});
 
-export default Page;
+
+// document.addEventListener('mousemove', function (e) {
+//     var cursor = document.querySelector('.cursor-piscante');
+//     cursor.style.left = e.pageX + 'px';
+//     cursor.style.top = e.pageY + 'px';
+// });
+
+// export default Page;

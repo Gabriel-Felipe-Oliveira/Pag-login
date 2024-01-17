@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/index.css">
+    
     <title>Login Page</title>
+    <script src="../js/index.js" type="module" defer></script>
 </head>
 <body> 
     <div class="container">
@@ -16,7 +18,7 @@
                 <div class="SuperTitulo">  <h1>FriendWeb</h1> </div>
 
                 <strong>
-                    <p>O FriendWeb ajuda você a se conectar e </p>
+                    <p>O friendweb ajuda você a se conectar e </p>
                     <p> compartilhar com as pessoas que</p>
                     <p> fazem parte da sua vida.</p>
                 </strong>
@@ -24,20 +26,46 @@
             </div>
         </section>
 
-        <section>
-            <div class="formulario">
+        
+        <div class="formulario">
 
-             <form id="meuFormulario" class="meuFormulario"></form>
+            <form id="meuFormulario" class="meuFormulario">
+
+                <div class="quadroInput"><input maxlength="30" placeholder="Email ou telefone"></div>
             
-            </div>
-        </section>
+                <div class="quadroInput"><input maxlength="30" placeholder="Senha"></div>
+
+                <button class="btn-entrar">Entrar</button>
+
+                <div class="quadroLink"><a href="google.com">Esqueceu a senha? </a></div>
+                
+                <hr>
+                
+                    <div class="quadro-btn-criar"><button type="button"  class="btn-criar" id="open-modal" >Criar nova conta</button></div>
+                    
+                    <dialog id="myModal" class="modal-content">
+                        <div class="modal-container">
+                        
+                        </div>
+                        
+                    <div class="quadro-btn-criar"><button type="button"  class="btn-criar" id="closed-modal" >Criar nova conta</button></div>
+                    </dialog>
+            </form>
+
+            
+
+            
+        </div>
+        
 
 
     </div>
    
+   
 
 
     
-    <script src="../js/index.js" type="module"></script>
+    
 </body>
+
 </html>

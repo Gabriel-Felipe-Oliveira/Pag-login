@@ -115,16 +115,7 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adicionando uma sombra */
     
 }
-.card {
-    display: flex;
-    align-items: center;
-    width: 300px;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    text-align: left; /* Ajuste o texto para a esquerda */
-}
+
 
 .user-img {
     width: 100px;
@@ -138,11 +129,50 @@ body {
     padding-left: 10px;
 }
 
+.card {
+    width: 300px;
+    border: 1px transparent #ccc;
+    
+    overflow: hidden;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para o contêiner da imagem */
+.card .image-container {
+    width: 100px; /* Defina a largura desejada */
+    height: 100px; /* Defina a altura desejada */
+    overflow: hidden;
+    border-radius: 50%; /* Torna o contêiner circular */
+    margin-right: 15px;
+}
+
+/* Estilo para a imagem dentro do contêiner */
+.card .image-container img {
+    width: 100%; /* Garante que a imagem ocupe todo o contêiner */
+    height: auto;
+    display: block;
+}
+
+
+
 /* Estilos adicionais para melhorar a aparência */
 h2 {
     color: #333;
 }
 
-p {
+/* p {
     color: #666;
+} */
+
+.text{
+    color: #f1f5f9 !important;
+}
+.Sugestoes{
+    width: 300px;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
 }
